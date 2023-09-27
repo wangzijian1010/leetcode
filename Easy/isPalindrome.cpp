@@ -29,6 +29,4 @@ public:
 int main(){
     Solution solution;
     bool test = solution.isPalindrome(101);
-
-
 }
