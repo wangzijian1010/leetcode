@@ -4,8 +4,7 @@
 
 #include "vector"
 #include <unordered_map>
-
-
+#include "iostream"
 using namespace std;
 
 class Solution {
@@ -28,4 +27,6 @@ int main(){
     Solution solution;
     int target = 13;
     solution.twoSum(nums,target);
+    std::cout<<"hello sum"<<std::endl;
+
 }
