@@ -1,43 +1,39 @@
 //
-// Created by wangzijian on 2023/9/28.
+// Created by wangzijian on 2023/10/6.
 //
 
 #include "string"
-#include "vector"
 #include "iostream"
+#include "vector"
 using namespace std;
 
 class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
-        // 如果传入的字符串为空则直接返回空字符串
+        vector<string> longestStr={};
+        // 如果字符串为空 那么直接返回无最长字符串
         if (strs.empty())
             return "";
-        // 获取字符数组长度
-        int length = strs.size();
-        // 定义初始的公共字符串
-        string prefix = strs[0];
-        for (int i = 1; i < length; i++) {
-            string& current = strs[i];
-            size_t j = 0;
-            while (j < current.length() && j < prefix.length() && current[j] == prefix[j]){
+
+        // 将字符串第一个设置为最长字串
+        std::string prefix = strs[0];
+        for (int i = 1; i < strs.size(); i++) {
+            // 如果当前为空 则也返回空的最长字符串
+            if (strs[i].empty())
+                return "";
+
+            int j=0;
+            // 判断条件
+            while (j<prefix.length() && j<strs[i].length() && prefix[j]==strs[i][j]){
                 j++;
             }
-            // 更新前缀
-            prefix = prefix.substr(0,j);
 
-            if (prefix.empty())
-                break;
+            prefix = prefix.substr(0,j);
         }
         return prefix;
     }
 };
 
 int main(){
-    vector<string> test={"flowers","flow","flight"};
-    Solution solution;
-
-    string result = solution.longestCommonPrefix(test);
-    std::cout << "Longest common prefix: " << result << std::endl;
-
+    vector<string> test = {"flower","flow","flight"};
 }

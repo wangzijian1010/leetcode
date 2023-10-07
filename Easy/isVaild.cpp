@@ -31,18 +31,17 @@ public:
                 // 如果是右括号 那么则要匹配 但是如果栈为空的话 那么只能为false
                 if (parenthesesStack.empty())
                     return false;
-            }
-            char top = parenthesesStack.top();
-            // 栈顶指针往下移
-            parenthesesStack.pop();
+                char top = parenthesesStack.top();
+                // 栈顶指针往下移
+                parenthesesStack.pop();
 
-            // 判断右括号是否与栈顶的左括号匹配
-            if ((c == ')' && top != '(') ||
-                (c == '}' && top != '{') ||
-                (c == ']' && top != '[')) {
-                return false;
+                // 判断右括号是否与栈顶的左括号匹配
+                if ((c == ')' && top != '(') ||
+                    (c == '}' && top != '{') ||
+                    (c == ']' && top != '[')) {
+                    return false;
+                }
             }
-
         }
         // 栈为空代表所有的均已出栈 则代表匹配成功
         return parenthesesStack.empty();
@@ -51,9 +50,9 @@ public:
 };
 
 int main(){
-    string test = "(]";
+    string test = "()";
     Solution solution;
     bool result= solution.isValid(test);
-
+    int a = 0;
     return 0;
 }
